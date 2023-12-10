@@ -4,6 +4,7 @@ import HelpView from '../views/HelpView.vue'
 import DocumentsView from '../views/DocumentsView.vue'
 import QuestionnaireView from '../views/QuestionnaireView.vue'
 import PaymentView from '../views/PaymentView.vue'
+import OnlineApplication from '../views/OnlineApplication.vue'
 
 const routes = [
   {
@@ -38,6 +39,11 @@ const routes = [
     path: '/payment',
     name: 'payment',
     component: PaymentView
+  },
+  {
+    path: '/online-application',
+    name: 'online-application',
+    component: OnlineApplication
   }
 
 ]

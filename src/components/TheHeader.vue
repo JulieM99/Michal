@@ -2,11 +2,14 @@
 
     <header>
 
-        <h1>VISA TO POLAND</h1>
+        <router-link to="/" class="header-title">VISA TO POLAND</router-link>
         <div class="menu-style">
-            <router-link to="/" class="nav-link">VISA TYPE</router-link>   
-            <router-link to="/documents" class="nav-link">DOCUMENTS</router-link>  
+            <router-link to="/" class="nav-link">VISA TYPES</router-link>   
+            <router-link to="/documents" class="nav-link">REQUIRED DOCUMENTS</router-link>  
+            <router-link to="/online-application">ONLINE VISA APPLICATION</router-link>
+            <router-link to="/payment">PAYMENT</router-link>
             <router-link to="/help" class="nav-link">HELP</router-link> 
+            
         </div>
 
         <div class="lang-style">
@@ -48,12 +51,15 @@
 <style scoped>
 
 
-h1 {
+.header-title {
     font-family: 'Dancing Script', cursive;
     font-family: 'Oswald', sans-serif;
     color: white;
     display: flex;
     justify-content: flex-start;
+    font-weight: bold;
+    font-size: 2rem;
+    text-decoration: none;
 }
 
 header {
@@ -63,7 +69,7 @@ header {
     justify-content: space-between;
     align-items: center;
     color: white;
-    box-shadow: 0 0 15px #000000;
+    box-shadow: 0 0 45px #00000091;
 }
 
 /* FLAGI W MENU */

@@ -1,7 +1,5 @@
 <template>
 
-    <h1>placenie</h1>
-
     <div class="payment">
 
         <visa-box>

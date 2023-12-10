@@ -9,7 +9,7 @@
                 <li>Contains at least two blank pages</li>
                 <li>Was released within the last ten years</li>
             </ul>    
-            <div class="div-link">► Completed and signed <a :href="publicPath" download="visa.pdf">visa application</a></div>
+            <div class="div-link">► Completed and signed <a :href="publicPath" download="visa.pdf">visa application</a> or complete <router-link to="/online-application">online application</router-link></div>
             <span>► Photography</span>
             <div class="div-link">► Confirmation of <router-link to="/payment" >visa payment</router-link></div>
             <span>► Travel medical insurance with an amount not lower than EUR 30,000, covering all expenses that may arise in connection with the need to return for medical reasons, the need for urgent medical assistance, emergency hospital treatment or death, or health insurance within the meaning of Polish regulations on care services health financed from public funds</span>
