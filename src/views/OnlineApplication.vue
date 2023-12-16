@@ -102,7 +102,7 @@
 .online-app-wrapper {
     max-width: 60%;
     margin-top: 1rem;
-    
+    margin-left: 20%;
 }
 
 .input-wrapper {
@@ -110,5 +110,7 @@
     border: 1px solid grey;
     border-radius: 10px;
     margin-top: 1rem;
+    border-color: #09033d8e;
+    box-shadow: 0 0 2px #09033d8e;
 }
 </style>

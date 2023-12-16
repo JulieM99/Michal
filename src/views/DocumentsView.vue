@@ -3,17 +3,17 @@
     <div class="documents">
         <div class="visa-type">
             <h2>Documents required for visa C</h2>
-            <span>► Travel document (passport document), which:</span>
+            <span>• Travel document (passport document), which:</span>
             <ul class="list-style">
                 <li>Is valid for at least three months after the planned date of leaving the territory of the Schengen area in the case of several visits, after the planned date of last leaving the territory of the Schengen area</li>
                 <li>Contains at least two blank pages</li>
                 <li>Was released within the last ten years</li>
             </ul>    
-            <div class="div-link">► Completed and signed <a :href="publicPath" download="visa.pdf">visa application</a> or complete <router-link to="/online-application">online application</router-link></div>
-            <span>► Photography</span>
-            <div class="div-link">► Confirmation of <router-link to="/payment" >visa payment</router-link></div>
-            <span>► Travel medical insurance with an amount not lower than EUR 30,000, covering all expenses that may arise in connection with the need to return for medical reasons, the need for urgent medical assistance, emergency hospital treatment or death, or health insurance within the meaning of Polish regulations on care services health financed from public funds</span>
-            <span>► Supplementary documents:</span>
+            <div class="div-link">• Completed and signed <a :href="publicPath" download="visa.pdf">visa application</a> or complete <router-link to="/online-application">online application</router-link></div>
+            <span>• Photography</span>
+            <div class="div-link">• Confirmation of <router-link to="/payment" >visa payment</router-link></div>
+            <span>• Travel medical insurance with an amount not lower than EUR 30,000, covering all expenses that may arise in connection with the need to return for medical reasons, the need for urgent medical assistance, emergency hospital treatment or death, or health insurance within the meaning of Polish regulations on care services health financed from public funds</span>
+            <span>• Supplementary documents:</span>
             <ul class="list-style">
                 <li>A document confirming the purpose of the trip</li>
                 <li>A document confirming that you have adequate financial resources to cover the costs of living for the entire period of your planned stay and to cover the costs of returning to your country of origin or residence, or to cover the costs of transit to a third country that will certainly grant entry permit, or documents confirming that these funds may legally obtain</li>
@@ -23,12 +23,12 @@
         </div>
         <div class="visa-type">
             <h2>Documents required for visa D</h2>
-            <span>► Travel document (passport document)</span>
-            <div class="div-link">► Completed and signed <a :href="publicPath" download="visa.pdf">visa application</a></div>
-            <span>► Photography</span>
-            <div class="div-link">► Confirmation of <router-link to="/payment" >visa payment</router-link></div>
-            <span>► Travel medical insurance with an amount not lower than EUR 30,000, covering all expenses that may arise in connection with the need to return for medical reasons, the need for urgent medical assistance, emergency hospital treatment or death, or health insurance within the meaning of Polish regulations on care services health financed from public funds</span>
-            <span>► Supplementary documents:</span>
+            <span>• Travel document (passport document)</span>
+            <div class="div-link">• Completed and signed <a :href="publicPath" download="visa.pdf">visa application</a></div>
+            <span>• Photography</span>
+            <div class="div-link">• Confirmation of <router-link to="/payment" >visa payment</router-link></div>
+            <span>• Travel medical insurance with an amount not lower than EUR 30,000, covering all expenses that may arise in connection with the need to return for medical reasons, the need for urgent medical assistance, emergency hospital treatment or death, or health insurance within the meaning of Polish regulations on care services health financed from public funds</span>
+            <span>• Supplementary documents:</span>
             <ul class="list-style">
                 <li>A document confirming the purpose of the trip and the conditions of stay</li>
                 <li>A document confirming that you have adequate financial resources to cover the costs of living for the entire period of your planned stay and to cover the costs of returning to your country of origin or residence, or to cover the costs of transit to a third country that will certainly grant entry permit, or documents confirming that these funds may legally obtain</li>
@@ -72,15 +72,15 @@ h2{
 }
 
 .visa-type {
-    background-color: rgba(63, 56, 56, 0.322);
+    background-color: rgba(9, 25, 71, 0.349);
     padding: 20px;
     min-width: 300px;
     max-width: 50%;
-    border-radius: 10px;
+    /* border-radius: 20px; */
     gap: 10px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 0 5px #000000;
+    box-shadow: 0 0 5px #09033d;
 }
 .list-style {
     text-align: left;

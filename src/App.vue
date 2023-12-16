@@ -53,7 +53,7 @@ nav a.router-link-exact-active {
 }
 
 body {
-  background-color: rgba(235, 220, 196, 0.801); 
+  background-color: rgba(138, 176, 194, 0.459);
   /* background-image: url("./assets/sky-blue-flag-poland.jpg");
   background-repeat: no-repeat;
   background-size: cover; */

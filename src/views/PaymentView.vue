@@ -63,17 +63,17 @@ h2{
 
 button {
     border: none;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     padding: 20px 0px;
     cursor: pointer;
-    background-color:rgba(80, 79, 70, 0.404);    
+    background-color:rgba(3, 4, 37, 0.555);    
     font-size: 1rem;
     font-weight: bold;
     box-shadow: 0 0 5px black;
 }
 
 .hovered:hover {
-    background-color: rgb(138, 22, 22); 
+    background-color: rgba(3, 4, 37, 0.253); 
 }
 
 .invoice-link {
