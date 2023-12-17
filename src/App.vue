@@ -27,7 +27,7 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center; */
   color: #2c3e50;
 }
 
@@ -53,7 +53,7 @@ nav a.router-link-exact-active {
 }
 
 body {
-  background-color: rgba(138, 176, 194, 0.459);
+  background-color: rgba(90, 142, 102, 0.266);
   /* background-image: url("./assets/sky-blue-flag-poland.jpg");
   background-repeat: no-repeat;
   background-size: cover; */
