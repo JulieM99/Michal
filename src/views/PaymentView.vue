@@ -1,30 +1,37 @@
 <template>
-
+  
     <div class="payment">
-
-        <visa-box>
-            <h2>Visa C</h2>
-            <button :class="{hovered: !visaCPaid}" :disabled="visaCPaid" @click="payVisaC">{{!visaCPaid ? "Go to payment site":"Payment succesfull"}}</button>
-            <a v-if="visaCPaid" :href="publicPath" download="invoiceTicket.pdf" class="invoice-link">Download Your Invoice Ticket</a>
-        </visa-box>
+        
+        <v-card class="pa-4 w-50 card-style">
+            <v-row justify="center" class="mb-8 mt-2">
+                <p>Here you can pay for your visa application.</p>
+            </v-row>
+            <v-row justify="center" class="mb-8">
+                <p>After making the payment, you will receive your unique PDF document with confirmation of payment. The document will be needed to place an order for a visa. You can also find the document in the my documents tab.</p>
+            </v-row>
+            <v-row justify="around" class="px-8">
+                <div justify="center" class="pb-4 d-flex flex-column ga-4">
+                    <p class="cols-center text-h5">Visa C</p>
+                <v-btn color="pink" :class="{hovered: !visaCPaid}" :disabled="visaCPaid || visaDPaid"  @click="payVisaC">{{!visaCPaid ? "Go to payment site":"Payment succesfull"}}</v-btn></div>
+                <div justify="center" class="ml-auto pb-4 d-flex flex-column ga-4">
+                    <p class="cols-center text-h5">Visa D</p>
+                <v-btn color="pink" :class="{hovered: !visaDPaid}" :disabled="visaDPaid || visaCPaid" @click="payVisaD">{{!visaDPaid ? "Go to payment site":"Payment succesfull"}}</v-btn></div>
+            </v-row>
+            <v-row justify="center" class="mb-2">
+                <a v-if="visaCPaid" :href="publicPath" download="invoiceTicket.pdf" class="invoice-link">Download Your Invoice Ticket</a>
+                <a v-if="visaDPaid" :href="publicPath_2" download="invoiceTicket.pdf" class="invoice-link">Download Your Invoice Ticket</a> 
+            </v-row>
+        </v-card>
             
-        <visa-box>
-            <h2>Visa D</h2>
-            <button :class="{hovered: !visaDPaid}" :disabled="visaDPaid" @click="payVisaD">{{!visaDPaid ? "Go to payment site":"Payment succesfull"}}</button>
-            <a v-if="visaDPaid" :href="publicPath_2" download="invoiceTicket.pdf" class="invoice-link">Download Your Invoice Ticket</a>
-        </visa-box>
-
     </div>
 
 </template>
 
 <script>
-    import VisaBox from "../components/VisaBox.vue"
+   
 
     export default{
-        components: {
-            VisaBox
-        },
+        
         data() {
             return {
                 visaCPaid: false,
@@ -45,6 +52,12 @@
 </script>
 
 <style scoped>
+
+.card-style {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px #6d6c6c;
+}
 .payment {
     display: flex;
     justify-content: center;
@@ -56,26 +69,6 @@
     padding-right: 50px;
 }
 
-h2{
-    padding: 10px;
-    color: black;
-}
-
-button {
-    border: none;
-    /* border-radius: 20px; */
-    padding: 20px 0px;
-    cursor: pointer;
-    background-color:rgba(3, 4, 37, 0.555);    
-    font-size: 1rem;
-    font-weight: bold;
-    box-shadow: 0 0 5px black;
-}
-
-.hovered:hover {
-    background-color: rgba(3, 4, 37, 0.253); 
-}
-
 .invoice-link {
     margin-top: 15px;
     padding: 10px 5px;
@@ -84,6 +77,14 @@ button {
 
 .invoice-link:hover {
     color: rgb(58, 55, 55);
+}
+
+p {
+    font-weight: bold;
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    
 }
 
 

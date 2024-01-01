@@ -1,7 +1,13 @@
 <template>
 
+
     <div class="visa-type">
-        <slot>
+    
+        <slot name="head"></slot>
+        <slot name="left" class="left-border">
+
+        </slot>
+        <slot name="right">
 
         </slot>
 
@@ -17,16 +23,22 @@
 <style scoped>
 
 .visa-type {
-    background-color: rgba(9, 25, 71, 0.349);
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px #6d6c6c;
     padding: 20px;
     min-width: 300px;
     max-width: 50%;
-    /* border-radius: 10px; */
     gap: 10px;
     display: flex;
-    flex-direction: column;
-    box-shadow: 0 0 5px #09033d;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
+
+.left-border {
+    border-right: 1px solid black;
+}
+
 
 
 </style>

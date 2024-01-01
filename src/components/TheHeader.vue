@@ -2,10 +2,10 @@
 
     <header>
 
-        <router-link to="/" class="header-title">VISA TO POLAND</router-link>
+        <router-link to="/documents" class="header-title">VISA TO POLAND</router-link>
         <div class="menu-style">
-            <router-link to="/" class="nav-link">VISA TYPES</router-link>   
-            <router-link to="/documents" class="nav-link">REQUIRED DOCUMENTS</router-link>  
+            <!-- <router-link to="/" class="nav-link">VISA TYPES</router-link>    -->
+            <router-link to="/documents" class="nav-link">VISA TYPES</router-link>  
             <router-link to="/online-application">ONLINE VISA APPLICATION</router-link>
             <router-link to="/payment">PAYMENT</router-link>
             <router-link to="/help" class="nav-link">HELP</router-link> 
@@ -63,7 +63,7 @@
 }
 
 header {
-    background-color: black;
+    background-color: rgb(39, 36, 36);
     display: flex;
     padding: 20px 30px;
     justify-content: space-between;

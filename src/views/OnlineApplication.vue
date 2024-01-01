@@ -3,36 +3,31 @@
 <div class="online-app-wrapper">
     <form @submit.prevent="">
         <div class="input-wrapper">
-            <label for="firstname">Names</label>
-            <input type="text" id="firstname">
 
-            <label for="lastname">Surname</label>
-            <input type="text" id="lastname">
+            <h4>Personal data</h4>
+            <v-text-field v-model="surname" class="w-100" density="compact" label="Surname" type="text" id="lastname"></v-text-field>
 
-            <label for="birthday">Birthday</label>
-            <input type="text" id="birthday">
+            <v-text-field v-model="familyName" class="w-100" density="compact" label="Family name(s)" type="text" id="familyName"></v-text-field>
 
-            <label for="place-of-birth">Place of birth</label>
-            <input type="text" id="place-of-birth">
+            <v-text-field v-model="name" class="w-100" density="compact" label="Names" type="text" id="firstname"></v-text-field>
 
-            <label for="country-of-birth">Country of birth</label>
-            <input type="text" id="country-of-birth">
+            <v-text-field v-model="birthday" class="w-100" density="compact" label="Birthday" type="text" id="birthday"></v-text-field>
 
-            <label for="citizenship-held">Citizenship held</label>
-            <input type="text" id="citizenship-held">
- 
-            <label for="citizenship-at-birth">Citizenship at birth (if different)</label>
-            <input type="text" id="citizenship-at-birth">
+            <v-text-field v-model="placeOfBirth" class="w-100" density="compact" label="Place of birth" type="text" id="place-of-birth"></v-text-field>
+
+            <v-text-field v-model="countryOfBirth" class="w-100" density="compact" label="Country of birth" type="text" id="country-of-birth"></v-text-field>
+
+            <v-text-field v-model="citizenshipHeld" class="w-100" density="compact" label="Citizenship Held" type="text" id="citizenship-held"></v-text-field>
 
             <div class="radio-wrapper">
                 <label for="sex">Sex</label>
                 <div>
                     <label for="male">Male</label>
-                    <input type="radio" id="male" name="sex">
+                    <input v-model="sex" type="radio" id="male" name="sex">
                 </div>
                 <div>
                     <label for="female">Female</label>
-                    <input type="radio" id="female" name="sex">
+                    <input v-model="sex" type="radio" id="female" name="sex">
                 </div>
             </div>
             
@@ -64,9 +59,12 @@
                 </div>
             </div>
   
-            <label for="id-number">National identification number (if applicable)</label>
-            <input type="text" id="id-number">
+            <v-text-field class="w-100" density="compact" label="National identification number (if applicable)" type="text" id="id-number"></v-text-field>
 
+        </div>
+        <div class="input-wrapper">
+
+            <h4>Travel document information</h4>
             <div class="radio-wrapper">
                 <label for="travel-doc">Type of travel document</label>
                 <div>
@@ -89,14 +87,92 @@
                     <label for="special-passport">Special passport</label>
                     <input type="radio" id="special-passport" name="travel-doc" value="special-passport">
                 </div>
-                <div>
-                    <label for="other-travel-doc">Other travel document (please specify)</label>
-                    <input type="text" id="other-travel-doc" name="travel-doc">
+            </div>
+
+            <v-text-field class="w-100" density="compact" label="Other travel document (please specify)" type="text" id="other-travel-doc" name="travel-doc"></v-text-field>
+            
+            <v-text-field class="w-100" density="compact" label="Travel document number" type="text" id="travel-id"></v-text-field>
+
+            <v-text-field class="w-100" density="compact" label="Release date (YYYY-MM-DD)" type="text" id="release-date"></v-text-field>   
+
+            <v-text-field class="w-100" density="compact" label="Valid until" type="text" id="valid-date"></v-text-field>
+
+            <v-text-field class="w-100" density="compact" label="Released by" type="text" id="released-by"></v-text-field>
+
+            </div>
+        
+            <div class="input-wrapper">
+                <h4>Guardian information</h4>
+                <v-switch color="green" class="color-black" label="If applicable" id="guardian" v-model="showGuardianContent"></v-switch>
+
+                <div v-if="showGuardianContent" class="w-100">
+
+                    <v-text-field class="w-100" density="compact" label="Citizenship" type="text" id="citizenship"></v-text-field>
+
+                    <v-text-field class="w-100" density="compact" label="Name" type="text" id="name"></v-text-field>
+
+                    <v-text-field class="w-100" density="compact" label="Surname" type="text" id="surname"></v-text-field>
+                    
+                    <v-text-field class="w-100" density="compact" label="Country" type="text" id="country"></v-text-field>
+
+                    <v-text-field class="w-100" density="compact" label="State/Province" type="text" id="state"></v-text-field>
+
+                    <v-text-field class="w-100" density="compact" label="Town" type="text" name="" id="town"></v-text-field>
+
+                    <v-text-field class="w-100" density="compact" label="Zip code" type="text" id="zip-code"></v-text-field>
+      
+                    <v-text-field class="w-100" density="compact" label="Address" type="text" id="address"></v-text-field>
+
                 </div>
+
             </div>
-             
-            <button type="submit">Submit</button>  
+
+            <div class="input-wrapper">
+               <h4>Contact details - Home address and e-mail address of the via applicant</h4>
+               
+                <v-text-field class="w-100" density="compact" label="Country" type="text" id="country"></v-text-field>
+
+                <v-text-field class="w-100" density="compact" label="State/Province" type="text" id="state"></v-text-field>
+
+                <v-text-field class="w-100" density="compact" label="Town" type="text" name="" id="town"></v-text-field>
+
+                <v-text-field class="w-100" density="compact" label="Zip code" type="text" id="zip-code"></v-text-field>
+      
+                <v-text-field class="w-100" density="compact" label="Address" type="text" id="address"></v-text-field>
+
+                <v-text-field class="w-100" density="compact" label="E-mail" type="text" id="e-mail"></v-text-field>
+
+                <v-text-field class="w-100" density="compact" label="Directional number" type="text" id="directional"></v-text-field>
+
+                <v-text-field class="w-100" density="compact" label="Phone" type="text" id="phone"></v-text-field>
+
             </div>
+
+            <div class="input-wrapper">
+                <h4>Agreements</h4>
+ 
+                <div class="consents-style">
+                    <input type="checkbox" id="cons-1">
+                    <label for="cons-1">I am aware that in the event of a visa refusal, the processing fee is non-refundable.</label>
+                </div>
+                <div class="consents-style">
+                    <input type="checkbox" id="cons-2">
+                    <label for="cons-2">Applies to the application for a multiple-entry national visa (see box 24): I am aware that for the first stay and subsequent visits to the territory of the Republic of Poland, it is necessary to have adequate health insurance within the meaning of the regulations on health care services financed from public funds or travel medical insurance.</label>
+                </div>
+                <div class="consents-style">
+                    <input type="checkbox" id="cons-3">
+                    <label for="cons-3">I declare that, to the best of my knowledge, all the detailed information submitted by me is correct and complete. I am aware that the submission of an application and/or supporting documents containing false personal data or false information, a false statement or concealment of the truth, or, in order to pass it off as authentic, the forgery or alteration of a document or the use of such a document as authentic will result in the refusal of a national visa, or annulment of a national visa already issued; It may also result in criminal consequences for me under Polish law.    I undertake to leave the territory of the Republic of Poland no later than on the last day of the period of stay to which the national visa issued to me entitles.    I am aware that having a national visa is only one of the conditions for entering the territory of the Republic of Poland. Obtaining a national visa does not mean that I am entitled to compensation if I am denied the right to enter the territory of the Republic of Poland as a result of not meeting the entry conditions set out in the Act on Foreigners. The conditions to be met upon entry will be checked again at the time of entering the territory of the Republic of Poland.    I am aware that a national visa that has already been issued may be revoked if I no longer meet the conditions for its issuance.</label>
+                </div>
+                <div class="consents-style">
+                    <input type="checkbox" id="cons-4">
+                    <label for="cons-4">I consent to the processing of my personal data, included in the e-Consulate registration form, in accordance with Article 6(1)(a) of Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (GDPR),  by the Ministry of Foreign Affairs, with its registered office in Warsaw, Al. J. Ch. Szucha 23. At the same time, I declare that I have read the information posted on the website.</label>
+                </div>
+                <button @click="modifyPDF" type="submit">Submit</button> 
+                <!-- <a :href="pdfFile" download="gowno.pdf">Download Your Invoice Ticket</a> -->
+               
+            </div>
+
+
             <div>  
         </div>
     </form>
@@ -105,17 +181,72 @@
 </template>
 
 <script>
+    import { PDFDocument } from 'pdf-lib'
+    //const fs = require("fs");
+
     export default {
         data() {
             return {
                 name: '',
                 surname: '',
+                familyName: '',
                 birthday: '',
                 placeOfBirth: '',
                 countryOfBirth: '',
                 citizenshipHeld: '',
                 citizenshipAtBirth: '',
                 sex: '',
+                showGuardianContent: false,
+                pdfFile: null
+            }
+        },
+        methods: {
+            async modifyPDF() {
+                
+                const path = '/wniosekedited.pdf';
+                const existingPDF = await fetch(path).then(res => res.arrayBuffer());
+                const pdfDoc = await PDFDocument.load(existingPDF);
+                const form = pdfDoc.getForm();
+
+                // set pdf with data
+
+                const surnameField = form.getTextField('1');
+                surnameField.setText(this.surname);
+
+                const familyNameField = form.getTextField('2');
+                familyNameField.setText(this.familyName);
+
+                const nameField = form.getTextField('3');
+                nameField.setText(this.name);
+
+                const birthdayField = form.getTextField('4');
+                birthdayField.setText(this.birthday);
+
+                const placeOfBirthField = form.getTextField('5');
+                placeOfBirthField.setText(this.placeOfBirth);
+
+                const countryOfBirthField = form.getTextField('6');
+                countryOfBirthField.setText(this.countryOfBirth);
+
+                const citizenshipHeldField = form.getTextField('7');
+                citizenshipHeldField.setText(this.citizenshipHeld);
+
+                // if (this.sex === 'Female') {
+                //     const sexField = form.getRadioGroup('8')
+                //     sexField.
+                // } else {
+                //     const sexField = form.getRadioGroup('8')
+                //     sexField.setText('x');
+                // }
+                
+
+                pdfDoc.setTitle('visaApplication');
+                const bytes = await pdfDoc.save();
+                const blob = new Blob([bytes], { type: 'application/pdf' });
+                const downloadLink = document.createElement('a');
+                downloadLink.href = URL.createObjectURL(blob);
+                downloadLink.download = 'visaApplication.pdf';
+                downloadLink.click();
             }
         }
     }
@@ -183,6 +314,21 @@ button {
 }
 button:hover{
     background-color: rgba(90, 142, 102, 0.174);
+}
+
+h4 {
+    padding-bottom: 10px;
+}
+
+.consents-style{
+    display: flex;
+    align-items:first baseline;
+    gap: 10px;
+    color: #6d6c6cc2;
+    padding-bottom: 10px;
+}
+.consents-style > label {
+    font-weight: 300;
 }
 
 </style>
