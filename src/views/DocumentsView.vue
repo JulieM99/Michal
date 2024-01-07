@@ -23,6 +23,7 @@
                 <li>A document regarding accommodation or having financial resources to cover the costs of accommodation</li>
                 <li>A document enabling the assessment that the person applying for a visa will leave the territory of the Schengen area before the expiry of the visa</li>
             </ul>
+            <span>Supporting documents may be different depending on the country where a visa application is submitted.</span>
         </div>
         <div class="visa-type">
             <h2>Visa D</h2>
@@ -30,7 +31,7 @@
             <span>• A D-type national visa also permits to travel in the territory of other Schengen Area Member States for up to 90 days during a 180-day period, during the validity period of the visa.</span>
             <h3>Required documents</h3>
             <span>• Travel document (passport document)</span>
-            <div class="div-link">• Completed and signed <a :href="publicPath" download="visa.pdf">visa application</a></div>
+            <div class="div-link">• Completed and signed <a :href="publicPath" download="visa.pdf">visa application</a> or complete <router-link to="/online-application">online application</router-link></div>
             <span>• Photography</span>
             <div class="div-link">• Confirmation of <router-link to="/payment" >visa payment</router-link></div>
             <span>• Travel medical insurance with an amount not lower than EUR 30,000, covering all expenses that may arise in connection with the need to return for medical reasons, the need for urgent medical assistance, emergency hospital treatment or death, or health insurance within the meaning of Polish regulations on care services health financed from public funds</span>
@@ -41,14 +42,15 @@
                 <li>A document enabling the assessment that the person applying for a visa will leave the territory of the Republic of Poland before the expiry of the visa</li>
                 <li>Other documents confirming other circumstances included in the visa application</li>
             </ul>
+            <span>Supporting documents may be different depending on the country where a visa application is submitted.</span>
         </div>
     </div> 
+
+    
 
 </template>
   
 <script>
-
-    // import {saveAs} from 'file-saver'
 
     export default {
         data () {

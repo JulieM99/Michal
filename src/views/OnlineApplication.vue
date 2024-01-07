@@ -153,25 +153,31 @@
  
                 <div class="consents-style">
                     <input type="checkbox" id="cons-1">
-                    <label for="cons-1">I am aware that in the event of a visa refusal, the processing fee is non-refundable.</label>
+                    <label for="cons-1">I am aware that in the event of a visa refusal, the processing fee is non-refundable.<span class="red">*</span></label>
                 </div>
                 <div class="consents-style">
                     <input type="checkbox" id="cons-2">
-                    <label for="cons-2">Applies to the application for a multiple-entry national visa (see box 24): I am aware that for the first stay and subsequent visits to the territory of the Republic of Poland, it is necessary to have adequate health insurance within the meaning of the regulations on health care services financed from public funds or travel medical insurance.</label>
+                    <label for="cons-2">Applies to the application for a multiple-entry national visa: I am aware that for the first stay and subsequent visits to the territory of the Republic of Poland, it is necessary to have adequate health insurance within the meaning of the regulations on health care services financed from public funds or travel medical insurance.<span class="red">*</span></label>
                 </div>
                 <div class="consents-style">
                     <input type="checkbox" id="cons-3">
-                    <label for="cons-3">I declare that, to the best of my knowledge, all the detailed information submitted by me is correct and complete. I am aware that the submission of an application and/or supporting documents containing false personal data or false information, a false statement or concealment of the truth, or, in order to pass it off as authentic, the forgery or alteration of a document or the use of such a document as authentic will result in the refusal of a national visa, or annulment of a national visa already issued; It may also result in criminal consequences for me under Polish law.    I undertake to leave the territory of the Republic of Poland no later than on the last day of the period of stay to which the national visa issued to me entitles.    I am aware that having a national visa is only one of the conditions for entering the territory of the Republic of Poland. Obtaining a national visa does not mean that I am entitled to compensation if I am denied the right to enter the territory of the Republic of Poland as a result of not meeting the entry conditions set out in the Act on Foreigners. The conditions to be met upon entry will be checked again at the time of entering the territory of the Republic of Poland.    I am aware that a national visa that has already been issued may be revoked if I no longer meet the conditions for its issuance.</label>
+                    <label for="cons-3">I declare that, to the best of my knowledge, all the detailed information submitted by me is correct and complete. I am aware that the submission of an application and/or supporting documents containing false personal data or false information, a false statement or concealment of the truth, or, in order to pass it off as authentic, the forgery or alteration of a document or the use of such a document as authentic will result in the refusal of a national visa, or annulment of a national visa already issued; It may also result in criminal consequences for me under Polish law. I undertake to leave the territory of the Republic of Poland no later than on the last day of the period of stay to which the national visa issued to me entitles. I am aware that having a national visa is only one of the conditions for entering the territory of the Republic of Poland. Obtaining a national visa does not mean that I am entitled to compensation if I am denied the right to enter the territory of the Republic of Poland as a result of not meeting the entry conditions set out in the Act on Foreigners. The conditions to be met upon entry will be checked again at the time of entering the territory of the Republic of Poland. I am aware that a national visa that has already been issued may be revoked if I no longer meet the conditions for its issuance.<span class="red">*</span></label>
                 </div>
                 <div class="consents-style">
                     <input type="checkbox" id="cons-4">
-                    <label for="cons-4">I consent to the processing of my personal data, included in the e-Consulate registration form, in accordance with Article 6(1)(a) of Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (GDPR),  by the Ministry of Foreign Affairs, with its registered office in Warsaw, Al. J. Ch. Szucha 23. At the same time, I declare that I have read the information posted on the website.</label>
+                    <label for="cons-4">I consent to the processing of my personal data, included in the e-Consulate registration form, in accordance with Article 6(1)(a) of Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (GDPR),  by the Ministry of Foreign Affairs, with its registered office in Warsaw, Al. J. Ch. Szucha 23. At the same time, I declare that I have read the information posted on the website.<span class="red">*</span></label>
                 </div>
                 <button @click="modifyPDF" type="submit">Submit</button> 
-                <!-- <a :href="pdfFile" download="gowno.pdf">Download Your Invoice Ticket</a> -->
                
             </div>
 
+            <v-snackbar v-model="snackbarAgreements" :timeout="timeout">
+                Please select all necessary agreements!
+            </v-snackbar>
+
+            <v-snackbar v-model="snackbarData" :timeout="timeout">
+                Please complete all required fields
+            </v-snackbar>
 
             <div>  
         </div>
@@ -182,7 +188,6 @@
 
 <script>
     import { PDFDocument } from 'pdf-lib'
-    //const fs = require("fs");
 
     export default {
         data() {
@@ -197,11 +202,16 @@
                 citizenshipAtBirth: '',
                 sex: '',
                 showGuardianContent: false,
-                pdfFile: null
+                pdfFile: null,
+                snackbarAgreements: false,
+                timeout: 3500,
+                snackbarData: false
             }
         },
         methods: {
             async modifyPDF() {
+
+                if(this.validateForm() === false) return;
                 
                 const path = '/wniosekedited.pdf';
                 const existingPDF = await fetch(path).then(res => res.arrayBuffer());
@@ -247,6 +257,17 @@
                 downloadLink.href = URL.createObjectURL(blob);
                 downloadLink.download = 'visaApplication.pdf';
                 downloadLink.click();
+            },
+            validateForm() {
+                if(this.name === '' || this.surname === '' || this.familyName === '' || this.birthday === '' || this.placeOfBirth === '' || this.countryOfBirth === '' || this.citizenshipHeld === '' || this.citizenshipAtBirth === '' || this.sex === '') {
+                    this.snackbarData = true;
+                    return false;
+                }
+                if (document.getElementById("cons-1").checked === false || document.getElementById("cons-2").checked === false || document.getElementById("cons-3").checked === false || document.getElementById("cons-4").checked === false ) {
+                    this.snackbarAgreements = true;
+                    return false;
+                }
+                return true;
             }
         }
     }
@@ -331,4 +352,7 @@ h4 {
     font-weight: 300;
 }
 
+.red {
+    color: red;
+}
 </style>

@@ -2,9 +2,10 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import HelpView from '../views/HelpView.vue'
 import DocumentsView from '../views/DocumentsView.vue'
-import QuestionnaireView from '../views/QuestionnaireView.vue'
 import PaymentView from '../views/PaymentView.vue'
 import OnlineApplication from '../views/OnlineApplication.vue'
+import ApplyDocuments from '../views/ApplyDocuments.vue'
+
 
 const routes = [
   {
@@ -31,9 +32,9 @@ const routes = [
     component: DocumentsView
   },
   {
-    path: '/questionnaire',
-    name: 'questionnaire',
-    component: QuestionnaireView
+    path: '/apply-doc',
+    name: 'apply-doc',
+    component: ApplyDocuments
   },
   {
     path: '/payment',

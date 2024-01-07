@@ -8,7 +8,9 @@
             <router-link to="/documents" class="nav-link">VISA TYPES</router-link>  
             <router-link to="/online-application">ONLINE VISA APPLICATION</router-link>
             <router-link to="/payment">PAYMENT</router-link>
+            <router-link to="/apply-doc" class="nav-link">APPLY DOCUMENTS</router-link>
             <router-link to="/help" class="nav-link">HELP</router-link> 
+            
             
         </div>
 
@@ -19,19 +21,19 @@
 
               <ul>
                   <li>
-                        <a href="#" class="de">German</a>
+                        <span href="" class="de">German</span>
                   </li>
                   <li>
-                        <a href="" class="en">English</a>
+                        <span href="" class="en">English</span>
                   </li>
                   <li>
-                        <a href="" class="fr">French</a>
+                        <span href="" class="fr">French</span>
                   </li>
                   <li>
-                        <a href="" class="pl">Polish</a>
+                        <span href="" class="pl">Polish</span>
                   </li>
                   <li>
-                        <a href="" class="ua">Ukrainian</a>
+                        <span href="" class="ua">Ukrainian</span>
                   </li>
               </ul>
 
@@ -126,18 +128,20 @@ header {
   justify-content: space-between;
 }
 
-.lang-style ul li a{
+.lang-style ul li span{
   text-decoration: none;
   width: 125px;
   padding: 5px 10px;
   display: block;
+  color: black;
+  cursor: pointer;
 }
 
 .lang-style ul li:hover {
   background-color: #f2f2f2;
 }
 
-.lang-style ul li a:before {
+.lang-style ul li span:before {
   content: '';
   display: inline-block;
   width: 25px;
