@@ -2,7 +2,7 @@
 
     <header>
 
-        <router-link to="/documents" class="header-title">VISA TO POLAND</router-link>
+        <router-link to="/" class="header-title">VISA TO POLAND</router-link>
         <div class="menu-style">
             <!-- <router-link to="/" class="nav-link">VISA TYPES</router-link>    -->
             <router-link to="/documents" class="nav-link">VISA TYPES</router-link>  

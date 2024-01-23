@@ -113,7 +113,7 @@
                 return filename.split('.').pop();
             },
             checkAllFiles() {
-                if (this.getFileExtension(this.photographyDocument.data.name) !== "img" && this.getFileExtension(this.photographyDocument.data.name) !== "png") {
+                if (this.photographyDocument.data && this.getFileExtension(this.photographyDocument.data.name) !== "img" && this.getFileExtension(this.photographyDocument.data.name) !== "png") {
                     this.snackbarPhotography = true;
                     this.currentWrongInput = this.photographyDocument.inputName;
                     return false;

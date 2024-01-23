@@ -11,7 +11,7 @@
 
             <v-text-field v-model="name" class="w-100" density="compact" label="Names" type="text" id="firstname"></v-text-field>
 
-            <v-text-field v-model="birthday" class="w-100" density="compact" label="Birthday" type="text" id="birthday"></v-text-field>
+            <v-text-field v-model="birthday" class="w-100" density="compact" label="Birthday (format dd/mm/yyyy ex. 31/01/2024)" type="text" id="birthday"></v-text-field>
 
             <v-text-field v-model="placeOfBirth" class="w-100" density="compact" label="Place of birth" type="text" id="place-of-birth"></v-text-field>
 
@@ -93,7 +93,7 @@
             
             <v-text-field class="w-100" density="compact" label="Travel document number" type="text" id="travel-id"></v-text-field>
 
-            <v-text-field class="w-100" density="compact" label="Release date (YYYY-MM-DD)" type="text" id="release-date"></v-text-field>   
+            <v-text-field class="w-100" density="compact" label="Release date (format dd/mm/yyyy ex. 31/01/2024)" type="text" id="release-date"></v-text-field>
 
             <v-text-field class="w-100" density="compact" label="Valid until" type="text" id="valid-date"></v-text-field>
 
@@ -179,6 +179,10 @@
                 Please complete all required fields!
             </v-snackbar>
 
+      <v-snackbar v-model="snackbarDate" :timeout="timeout">
+        Date format incorrect!
+      </v-snackbar>
+
             <div>  
         </div>
     </form>
@@ -205,7 +209,11 @@
                 pdfFile: null,
                 snackbarAgreements: false,
                 timeout: 3500,
-                snackbarData: false
+                snackbarData: false,
+              snackbarDate: false,
+                rules: {
+                  required: value => !!value || 'Field is required',
+                },
             }
         },
         methods: {
@@ -258,10 +266,17 @@
                 downloadLink.click();
             },
             validateForm() {
+              const dataReg = RegExp("^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[13-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$");
+
+              if (!dataReg.test(this.birthday)) {
+                this.snackbarDate = true;
+                return false;
+              }
                 if(this.name === '' || this.surname === '' || this.familyName === '' || this.birthday === '' || this.placeOfBirth === '' || this.countryOfBirth === '' || this.citizenshipHeld === '' || this.sex === '') {
                     this.snackbarData = true;
                     return false;
                 }
+
                 if (document.getElementById("cons-1").checked === false || document.getElementById("cons-2").checked === false || document.getElementById("cons-3").checked === false || document.getElementById("cons-4").checked === false ) {
                     this.snackbarAgreements = true;
                     return false;
