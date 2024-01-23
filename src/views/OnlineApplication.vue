@@ -176,7 +176,7 @@
             </v-snackbar>
 
             <v-snackbar v-model="snackbarData" :timeout="timeout">
-                Please complete all required fields
+                Please complete all required fields!
             </v-snackbar>
 
             <div>  
@@ -243,12 +243,11 @@
 
                 // if (this.sex === 'Female') {
                 //     const sexField = form.getRadioGroup('8')
-                //     sexField.
+                //     sexField.setText(this.sex)
                 // } else {
                 //     const sexField = form.getRadioGroup('8')
-                //     sexField.setText('x');
+                //     sexField.setText(this.sex);
                 // }
-                
 
                 pdfDoc.setTitle('visaApplication');
                 const bytes = await pdfDoc.save();
@@ -259,7 +258,7 @@
                 downloadLink.click();
             },
             validateForm() {
-                if(this.name === '' || this.surname === '' || this.familyName === '' || this.birthday === '' || this.placeOfBirth === '' || this.countryOfBirth === '' || this.citizenshipHeld === '' || this.citizenshipAtBirth === '' || this.sex === '') {
+                if(this.name === '' || this.surname === '' || this.familyName === '' || this.birthday === '' || this.placeOfBirth === '' || this.countryOfBirth === '' || this.citizenshipHeld === '' || this.sex === '') {
                     this.snackbarData = true;
                     return false;
                 }
